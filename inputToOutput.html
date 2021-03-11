@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Input to Output </title>
+        <h1> COPY FROM INPUT TO OUTPUT</h1>
+        <script>
+            function inputOutput(){
+                const input = document.getElementById("in").value;
+                document.getElementById("out").innerHTML = input;
+                input = "";
+
+            }
+        </script>
+    </head>
+    <body>
+        Input: 
+    <br/>
+    <input type="text" id="in" >
+    <br/>
+    Output:
+    <br/>
+    <span id="out"></span>
+    <br/>
+    <br/>
+    <button onclick="inputOutput()">Click to Add </button>
+
+    
+    </body>
+</html>
