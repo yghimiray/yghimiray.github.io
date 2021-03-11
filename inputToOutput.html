@@ -6,8 +6,8 @@
         <script>
             function inputOutput(){
                 const input = document.getElementById("in").value;
-                document.getElementById("out").innerHTML = input;
-                input = "";
+                document.getElementById("out").value = input;
+                document.getElementById("in").value = "";
 
             }
         </script>
@@ -19,7 +19,7 @@
     <br/>
     Output:
     <br/>
-    <span id="out"></span>
+    <input type="text" id="out" >
     <br/>
     <br/>
     <button onclick="inputOutput()">Click to Add </button>
