@@ -1,10 +1,40 @@
 p {
-    color: white;
-    background-color: blue;
+    color: #724;;
+    /* background-color: rgb(1, 1, 15); */
+    /* border: 5px solid red;   */
     }
 
+body {
+background-color: rgb(193, 230, 169);
+color: #724;
+font-family: Georgia, serif;
+    line-height: 1.4;
+}
 
-    p { border: 5px solid red; }
+    h1,h2 { color: rgb(13, 114, 4); }
+    
+    /* unvisited link */
+a:link {
+    color: #FF0000;
+    }
+    /* visited link */
+    a:visited {
+    color: #010f01;
+    }
+    /* mouse over link */
+    a:hover {
+    color: #FF00FF;
+    }
+    /* click on a link */
+    a:active {
+    color: #0000FF;
+    }
+
+    
+    <p>
+    <a href="https://jigsaw.w3.org/css-validator/check/referer">
+    <img src="https://jigsaw.w3.org/css-validator/images/vcss " alt="Valid CSS!" /></a>
+    </p>  
 
 
 
