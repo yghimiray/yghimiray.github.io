@@ -1,4 +1,19 @@
 "use strict";
+
+/* You need the assert and function name declarations to test in node.  
+Comment these out when you send it to the browser with the index.html mocha setup page.
+*/
+const assert = require("assert");  //always need this with node
+const myExports = require("./app.js");  //with node need the name of your file with your functions here
+const maxOfThree = myExports.maxOfThree;  //do this for all of the functions used in the Mocha tests
+const multiply = myExports.multiply;
+const sum = myExports.sum;
+const findLongestWord = myExports.findLongestWord;
+const reverseArray = myExports.reverseArray;
+const reverseArrayInPlace = myExports.reverseArrayInPlace;
+const scoreExams = myExports.scoreExams;
+
+
 /* global assert maxOfThree sum multiply findLongestWord reverseArray reverseArrayInPlace scoreExams */
 
 /* 1.	1.	Define a function maxOfThree() that takes three numbers as arguments and returns the largest of them.  */
@@ -6,11 +21,23 @@ describe("maxOfThree", function () {
     it("tests 1 2 3", function () {
         assert.strictEqual(maxOfThree(1, 2, 3), 3);
     });
+    it("tests 1 3 2", function () {
+        assert.strictEqual(maxOfThree(10, 30, 20), 30);
+    });
+    it("tests 2 1 3", function () {
+        assert.strictEqual(maxOfThree(2, 1, 3), 3);
+    });
+    it("tests 2 3 1", function () {
+        assert.strictEqual(maxOfThree(22, 33, 11), 33);
+    });
     it("tests 3 2 1", function () {
         assert.strictEqual(maxOfThree(3, 2, 1), 3);
     });
+    it("tests 3 1 2", function () {
+        assert.strictEqual(maxOfThree(333, 111, 222), 333);
+    });
     it("tests -1 -2 -3", function () {
-        assert.strictEqual(maxOfThree(-1, -2, -3), 3);
+        assert.strictEqual(maxOfThree(-1, -2, -3), -1);
     });
 });
 
@@ -33,10 +60,10 @@ describe("sum and multiply", function () {
 */
 describe("findLongestWord", function () {
     it("tests longest", function () {
-        assert.strictEqual(findLongestWord(["this", "is", "a", "test", "longest"]), "longest");
+        assert.strictEqual(findLongestWord(["this", "is", "a", "test", "longest"]), 7);
     });
     it("tests longest with spaces", function () {
-        assert.strictEqual(findLongestWord(["this", "is", "a word with spaces", "test", "longest"]), "a word with spaces");
+        assert.strictEqual(findLongestWord(["this", "is", "a word with spaces", "test", "longest"]), 18);
     });
 });
 
@@ -64,7 +91,6 @@ describe("reverseArray", function () {
 5.  Write a function, scoreExams, that takes an array of arrays of student answers and an array of the correct answers.  
 It should compare each student’s answers against the correct answers and return an array holding the scores of each student.  The score 
 for each student is a count of the number of correct answers (i.e., matches with the key of correct answers).  For example
-
 const studentAnswers = [[1, 1, 2], [2, 1, 2], [3, 1, 3]];
 const correctAnswers = [3, 1, 2];
 scoreExams(studentAnswers, correctAnswers)); --> [2, 2, 2]
