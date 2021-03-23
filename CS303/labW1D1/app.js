@@ -1,6 +1,6 @@
 "use strict";
 
-module.exports = {maxOfThree,sum, multiply, findLongestWord, reverseArray, reverseArrayInPlace,scoreExams};
+// module.exports = {maxOfThree,sum, multiply, findLongestWord, reverseArray, reverseArrayInPlace,scoreExams};
 
 /* Q1. Define a function maxOfThree() that takes three numbers as arguments and returns the
 largest of them.
