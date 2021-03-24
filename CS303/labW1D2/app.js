@@ -1,6 +1,6 @@
 "use strict";
 /* You need the module.exports when testing in node.  Comment it out when you send your file to the browser */
-module.exports = {findTitles,findAuthors,findIDs,addBook }; //add all of your function names here that you need for the node mocha tests
+// module.exports = {findTitles,findAuthors,findIDs,addBook }; //add all of your function names here that you need for the node mocha tests
 
 
 let library = [
@@ -29,12 +29,12 @@ return {
  *  @param {string} title name of book
  * @param {string} author name of author
  * @param {number} libraryID Library Id number of the book
- * @returns {Array} an array of books.
+ * @returns {object} the added book.
  */
-function addBook(title, author, libraryID){
-const book = makeBook(title,author,libraryID);
+function addBook(book){
+// const book = makeBook(title,author,libraryID);
 library.push(book);
-return library;
+return book;
 }
 
 // console.log(addBook("aa","bbb",5555));
