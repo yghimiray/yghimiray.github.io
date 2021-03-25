@@ -4,13 +4,30 @@
 module.exports = { Accumulator, Calculator }; //add all of your function names here that you need for the node mocha tests
 
 /**
- * 
+ * @param {number} initialValue an initial number.
+ * @param {number} increment a number that increases the initial number.
  * @returns {Accumulator} constructor function
  */
-function Accumulator() {
-   //implement this
+function Accumulator(initialValue, increment) {
+   this.currentValue = initialValue;
+   this.increment = increment;
+   this.accumulate = function (){
+      this.currentValue += increment;
+      return this.currentValue;
+   };
+   this.report = function(){
+      return this.currentValue;
+   };
 
 }
+
+// const accumulator = new Accumulator(5,10);
+// console.log(accumulator.currentValue);
+// console.log(accumulator.increment);
+// accumulator.accumulate();
+// accumulator.accumulate();
+// console.log(accumulator.currentValue);
+// console.log(accumulator.increment);
 
 
 
