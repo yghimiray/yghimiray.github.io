@@ -10,13 +10,23 @@
         Book Title
         <br />
         <input type="text" id="title" size="80" />
+        <br />
+        Name of Author
+        <br />
+        <input type="text" id="author" size="80" />
+        <br />
+        Library ID
+        <br />
+        <input type="text" id="id" size="20" />
     </p>
 
-    <input type="button" value="Show titles" id="titlesBtn" onclick="showTitles();"/>
+    <input type="button" value="Show Books" id="bookBtn" onclick="showBooks();"/>
+    <input type="button" value="Add Book" id="addBtn" onclick="addBookBrowser();"/>
+    <input type="button" value="Sort Titles" id="titlesBtn" onclick="showTitles();"/>
     <input type="button" value="Scramble" id="scrambleBtn" onclick="scramble();"/>
 
     <p>
-        <textarea id="displayArea" rows="10" cols="80"></textarea>
+        <textarea id="displayArea" rows="10" cols="130"></textarea>
     </p>
 
 </body>
