@@ -13,7 +13,7 @@ describe("calculator from constructor function", function () {
         calc.b = 30;
     });
 
-    it("when 2 and 3 are entered, the sum is 50", function () {
+    it("when 20 and 30 are entered, the sum is 50", function () {
         assert.strictEqual(calc.a, 20);
         assert.strictEqual(calc.b, 30);
         assert.strictEqual(calc.sum(), 50);

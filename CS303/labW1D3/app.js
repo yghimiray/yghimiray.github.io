@@ -34,8 +34,8 @@ function Calculator() {
    };
 }
 
-let calc = new Calculator();
-calc.setValues(20,30);
-console.log(calc.sum());
-console.log(calc.mul());
-console.log(calc.firstNum);
+// let calc = new Calculator();
+// calc.setValues(20,30);
+// console.log(calc.sum());
+// console.log(calc.mul());
+// console.log(calc.firstNum);
