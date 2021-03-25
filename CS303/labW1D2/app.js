@@ -9,24 +9,7 @@ let library = [
     { title: "Mockingjay: The Final Book of The Hunger Games", author: "Suzanne Collins", libraryID: 3245 }
 ];
 
-// console.log(library);
 
-/**
- * Event handler to display library books.
- * @returns {undefined}
- */
-function showBooks(){
-    let textArea = document.getElementById("displayArea"); 
-   let allBooks;
-   for(const element of library){
-       allBooks = element.title;
-       textArea.innerHTML = allBooks;   
-   }  
-   
-// return allBooks;
-}
-
-// console.log(showBooks());
 
 /**
  * 
@@ -72,9 +55,6 @@ function addBookBrowser() {
     return;
 }
 
-// console.log(addBook("aa","bbb",5555));
-// console.log(library);
-
 
 /**
  * Event handler to display library titles sorted alphabetically
@@ -93,6 +73,7 @@ function showTitles() {
     let textArea = document.getElementById("displayArea");
     textArea.innerHTML = titleString;
 }
+
 
 /**
  * 

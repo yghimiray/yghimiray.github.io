@@ -1,7 +1,7 @@
 "use strict";
 
 /* You need the module.exports when testing in node.  Comment it out when you send your file to the browser */
-// module.exports = { Accumulator, Calculator }; //add all of your function names here that you need for the node mocha tests
+module.exports = { Accumulator, Calculator }; //add all of your function names here that you need for the node mocha tests
 
 /**
  * @param {number} initialValue an initial number.
@@ -37,22 +37,19 @@ function Accumulator(initialValue, increment) {
  * @returns {Calculator} this is a constructor function
  */
 function Calculator() {
-   this.firstNum = 2;
-   this.secondNum = 3;
-   this.setValues = function (num1, num2) {
-      this.firstNum = num1;
-      this.secondNum = num2;
-   };
+   this.setValues = function (num1, num2){
+      this.a = num1;
+      this.b = num2;
+   }
    this.sum = function(){
-      return this.firstNum + this.secondNum;
+      return this.a + this.b;
    };
    this.mul = function(){
-      return this.firstNum * this.secondNum;
+      return this.a * this.b;
    };
 }
 
-// let calc = new Calculator();
-// calc.setValues(20,30);
-// console.log(calc.sum());
-// console.log(calc.mul());
-// console.log(calc.firstNum);
+let calc = new Calculator();
+calc.setValues(20,30);
+console.log(calc.sum());
+console.log(calc.mul());
