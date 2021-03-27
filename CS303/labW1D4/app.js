@@ -94,6 +94,7 @@ function extractCurrencyValue(str) {
  * @returns {string} a camelized string
  */
 function camelize(str) {
+  if(str==="") return "";
   const strArr = str.split("-");
   let strNew = strArr[0];
   for (let i = 1; i < strArr.length; i++){
@@ -104,3 +105,5 @@ return strNew;
 }
 
 // console.log(camelize("-xyz-pqr-mno"));
+
+
