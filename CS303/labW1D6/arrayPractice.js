@@ -24,17 +24,17 @@ function doubleAges(arr) {
     }));
 }
 
-/**
- * 
- * @param {number} num a number
- * @returns {boolean} either even or not
- */
-function isEven(num) {
-    if (num % 2 === 0) {
-        return true;
-    }
-    return false;
-}
+// /**
+//  * 
+//  * @param {number} num a number
+//  * @returns {boolean} either even or not
+//  */
+// function isEven(num) {
+//     if (num % 2 === 0) {
+//         return true;
+//     }
+//     return false;
+// }
 
 function filterEven(arr) {
     const even = arr.filter(item => item % 2 === 0);
@@ -44,15 +44,20 @@ function filterEven(arr) {
 
 
 function filterOver10(arr) {
-
+    return arr.filter(obj => obj.age > 10);
 }
 
+/**
+ * 
+ * @param {Array} arr an array of numbers
+ * @returns {number} an even number
+ */
 function findEvenNum(arr) {
-
+    return arr.find(num => num % 2 === 0);
 }
 
 function findEvenAge(arr) {
-
+    return arr.find(obj => obj.age % 2 === 0 );
 }
 
 function includesEvenNum(arr) {

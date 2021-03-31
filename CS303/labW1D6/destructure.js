@@ -20,12 +20,59 @@ function topSalary(salaries) {
   return person;
 }
 
+/**
+ * 
+ * @param {string} givenDate a string of date in YYYY, MM,DD format.
+ * @returns {string} a name of the day.
+ */
+function getWeekday(givenDate) {
+  const date = new Date(givenDate);
+  const day = date.getDay();
+  if (day === 0) return "SU";
+  if (day === 1) return "MO";
+  if (day === 2) return "TU";
+  if (day === 3) return "WE";
+  if (day === 4) return "TH";
+  if (day === 5) return "FR";
+  if (day === 6) return "SA";
+}
+
+// console.log(getWeekday("2021,3,29"));
 
 
+/**
+ * 
+ * @param {string} givenDate a string of date in YYYY, MM,DD format.
+ * @returns {number} the day European day-number starting Mon=>1 and Sun=> 7;
+ */
+function getLocalDay(givenDate) {
+  const date = new Date(givenDate);
+  const day = date.getDay();
+  if (day === 0) {
+    return 7;
+  } else {
+    return day;
+  }
+}
 
+/**
+ * 
+ * @param {*} givenDate a string of date in YYYY, MM,DD format.
+ * @param {*} givenDays given days before the given date
+ * @returns {number} the date before the given days.
+ */
+function getDateAgo(givenDate, givenDays) {
+  const date = new Date(givenDate); // make a date object using Date constructor.
+  const dateToNumber = date.getDate();// abstract the date from it.
+  const dateAgotoNum = dateToNumber - givenDays; // deduct given days, gives a number
+date.setDate(dateAgotoNum);// reconvert that number to date 
+const newDate = date.getDate();
+return newDate;
+}
 
+// console.log(getDateAgo((2021,3,29),0));
 
-
-function getDateAgo(date, days) {
-
+function getLastDayOfMonth(year, month) {
+  let date = new Date(year, month + 1, 0);
+  return date.getDate();
 }
