@@ -32,8 +32,7 @@ function myMap(arr, fun) {
 /* Q3. Do the same for Array.filter and Array.reduce.
 */
 
-/**
- * 
+/** * 
  * @param {Array} arr an array of any type. 
  * @param {Object} fun a function that converts each element of given array.
  * @returns {Array} the revised array.

@@ -6,36 +6,36 @@
  * @param {string} letter a letter
  * @returns {number} a number
  */
-function countInstances(str,letter){
-    if(str === ""){
+function countInstances(str, letter) {
+    if (str === "") {
         return 0;
-    } 
+    }
 
-    if(str[0] === letter){
-        return 1 + countInstances(str.substr(1),letter);
-    }else {
-        return countInstances(str.substr(1),letter);
+    if (str[0] === letter) {
+        return 1 + countInstances(str.substr(1), letter);
+    } else {
+        return countInstances(str.substr(1), letter);
     }
 }
 
-console.log(countInstances("abanana","a"));
+console.log(countInstances("abanana", "a"));
 
 
 
-const arr = [1,2,3,4,5];
+const arr = [1, 2, 3, 4, 5];
 /**
  * 
  * @param {Array} arr to be processed
  * @param {*} cbk to map the elements
  * @returns {Array} of mapped elements
  */
-function myMap(arr, cbk){
-let newArr = [];
-for(const element of arr){
-    const revisedElem = cbk(element);
-    newArr.push(revisedElem);
-}
-return newArr;
+function myMap(arr, cbk) {
+    let newArr = [];
+    for (const element of arr) {
+        const revisedElem = cbk(element);
+        newArr.push(revisedElem);
+    }
+    return newArr;
 }
 
 
@@ -58,12 +58,12 @@ console.log("expect [1, 4, 9, 16, 25] ", myMap(arr, squareFun));
  * go through the array, call cbk with accumulator and element
  * return value of cbk becomes accumulator for next loop
  */
-function myReduce(arr, cbk, initialVal){
-let accum = arr[0];
-for (let i = 1; i < arr.length; i++){
-    accum = cbk(accum,arr[i]);
-}
-return accum;
+function myReduce(arr, cbk, initialVal) {
+    let accum = initialVal;
+    for (const element of arr) {
+        accum = cbk(accum, element);
+    }
+    return accum;
 }
 
 const sumFun = (accum, val) => accum + val;
@@ -75,3 +75,26 @@ console.log("expect: 15: ", myReduce(arr, sumFun, 0));
 
 console.log("expect: 120: ", arr.reduce(mulFun, 1));
 console.log("expect: 120: ", myReduce(arr, mulFun, 1));
+
+
+/** * 
+ * @param {Array} arr an array of any type. 
+ * @param {Object} fun a function that converts each element of given array.
+ * @returns {Array} the revised array.
+ */
+function myFind(arr, fun) {
+    for (const element of arr) {
+        if (fun(element)) {
+            return element;
+        }
+        break;
+    }
+    // return newArr;
+}
+
+// function fun(num){
+//     return num % 2===0;
+// }
+
+// const array = [1,2,3,4,5];
+// console.log(myFilter(array,fun));
