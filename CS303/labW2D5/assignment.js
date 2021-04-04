@@ -1,5 +1,8 @@
 "use strict";
-
+/**
+ * 
+ * @returns {function} a function.
+ */
 function makeCounter(){
     let count = 0;
     // let count1 = count++;

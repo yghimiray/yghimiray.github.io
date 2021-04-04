@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 /* You need the module.exports when testing in node.  Comment it out when you send your file to the browser 
 */
 // module.exports = {inArray, inBetween, byField, makeArmy }; //add all of your function names here that you need for the node mocha tests
@@ -40,7 +40,7 @@ let sortResult = function(user1, user2){
   if(user1[fieldName] > user2[fieldName]) return 1;
   if(user1[fieldName] === user2[fieldName]) return 0;
   if(user1[fieldName] < user2[fieldName]) return -1;
-}
+};
 return sortResult;
 }
 
