@@ -23,13 +23,27 @@ makeBank function instead of a property on the bank object.
 
 function makeBank(){
     const transDB = [];
+   
     const bankObj ={
-        transactionDB : transDB,
+       
     };
     return bankObj;
 }
 
 
+// /**
+//  * 
+//  * @param {number} CustId a customer ID number
+//  * @param {Array} CustTrans an array of customer transactions
+//  * @returns {object} a new customer
+//  */
+// function CreateCustmr(CustId, CustTrans){
+//     const custmr = {
+//         CustId : CustId,
+//         CustTrans : CustTrans,
+//     };
+// return custmr;
+// }
 
 const custmr1 = { customerId: 1, customerTransactions: [10, 50, -40] };
 const custmr2 = { customerId: 2, customerTransactions: [10, 10, -10] };
@@ -37,6 +51,4 @@ const custmr3 = { customerId: 3, customerTransactions: [5, -5, 55] };
 
 const bank = makeBank();
 
-bank.transactionDB.push(custmr1);
-bank.transactionDB.push(custmr2);
-console.log(bank.transactionDB);
+// console.log(bank.transactionDB);
