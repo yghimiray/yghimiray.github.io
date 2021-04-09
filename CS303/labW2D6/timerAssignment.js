@@ -1,13 +1,13 @@
 "use strict";
 
-function printTimer(start, end){
-    const timer = setInterval(function(){
+function printTimer(start, end) {
+    const timer = setInterval(function () {
         console.log(start);
-        if(start === end){
+        if (start === end) {
             clearInterval(timer);
         }
         start++;
-    },1000);
+    }, 1000);
 }
 
 // printTimer(5,10);
@@ -21,15 +21,80 @@ return the bank object. Make the transactionsDB private by making it a local var
 makeBank function instead of a property on the bank object.
 */
 
-function makeBank(){
-    const transDB = [];
-   
-    const bankObj ={
-       
+/**
+ * 
+ * @returns {object} a bank object.
+ */
+function makeBank() {
+    const transDB = [
+    { custID: 1, custTrans: [10, 50, -40] }, // balance = 20
+    { custID: 2, custTrans: [10, 10, -10] }, // balance = 10
+    { custID: 3, custTrans: [5, -5, 55] }, // balance = 55
+    ];
+
+    const checkId = function (id) {
+        const foundCustmr = transDB.find(customer => customer.custID === id);
+        return foundCustmr;
     };
+
+    const saveTransaction = function(id, amount) {
+        const foundCustmr = transDB.find(customer => customer.custID === id);
+        foundCustmr.custTrans.push(amount);
+    };
+    
+
+    const bankObj = {
+        // checkId : function (id) {
+        //     const foundCustmr = transDB.find(customer => customer.custID === id);
+        //     return foundCustmr;
+        // },
+        getBalance : function (id) {
+            const customer = checkId(id);
+            const balance = customer.custTrans.reduce((sum, item) => sum + item, 0);
+            return balance;
+        },
+        debit : function (id, amount) {
+            let balance = this.getBalance(id);
+            if (amount < 0) {
+                console.log("Invalid amount. Please enter positive amount !");
+            } else if (amount > balance) {
+                console.log("Insufficient balance. Please try again !");
+            } else {
+                amount = amount * -1;
+                saveTransaction(id, amount);
+            }
+        },
+        credit : function (id, amount) {
+            if (amount < 0) {
+                console.log("Invalid amount. Please enter positive amount !");
+            } else {
+                saveTransaction(id, amount);
+            }
+        },
+        getTotalBalance : function () {
+            let sum = 0;
+            for (const customer of transDB) {
+                const id = customer.custID;
+                const custBalance = this.getBalance(id);
+                sum += custBalance;
+            }
+            return sum;
+        },
+            };
     return bankObj;
 }
 
+// /**
+//  * 
+//  * @param {number} id a customer ID
+//  * @param {number} amount a transaction amount
+//  * @param {Array} arr an array
+//  * @returns {undefined}
+//  */
+// function saveTransaction(id, amount,arr) {
+//     const foundCustmr = arr.find(customer => customer.custID === id);
+//     foundCustmr.custTrans.push(amount);
+// }
 
 // /**
 //  * 
@@ -45,10 +110,7 @@ function makeBank(){
 // return custmr;
 // }
 
-const custmr1 = { customerId: 1, customerTransactions: [10, 50, -40] };
-const custmr2 = { customerId: 2, customerTransactions: [10, 10, -10] };
-const custmr3 = { customerId: 3, customerTransactions: [5, -5, 55] };
-
 const bank = makeBank();
-
-// console.log(bank.transactionDB);
+bank.debit(2,5);
+bank.credit(2,20);
+console.log(bank.getTotalBalance());
