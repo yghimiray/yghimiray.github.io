@@ -28,6 +28,8 @@ let pockets = {
 
 
 let animal = { eats: true };
+
+
 function Rabbit(name) { 
     this.name = name;
 }
@@ -42,4 +44,21 @@ let rabbit = {
     name : "White Rabbit",
     __proto__ : animal,
 };
-console.log( rabbit.eats ); // true
+// console.log( rabbit.eats ); // true
+
+
+
+function makeCounter() {
+    let count = 0;
+    return function(num=1) {
+        if(num > 3){
+            console.log("Warning: increment was by value greater than 3.");
+        }
+        return count+= num; 
+        };
+    }
+
+    const myCounter = makeCounter();
+    console.log(myCounter());
+    console.log(myCounter(3));
+    console.log(myCounter(10));
