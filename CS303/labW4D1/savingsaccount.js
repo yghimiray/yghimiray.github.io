@@ -33,6 +33,7 @@ const Account = acc.Account;  //do this for all of the functions used in the Moc
   addInterest (){
       const intAmt = this._balance * this.interest/100;
     this._balance += intAmt;
+    return this._balance;
   }
 
    /**
@@ -57,7 +58,7 @@ const Account = acc.Account;  //do this for all of the functions used in the Moc
     * @returns {string} representation of this account
     */
 toString() {
-   return "SavingsAccount"+ this._number + ": balance:" + this._balance + "interest:" + this.interest ;
+   return "SavingsAccount "+ this._number + ": balance: " + this._balance + " interest: " + this.interest ;
 }
 
 /**
@@ -66,7 +67,8 @@ toString() {
      * @returns {undefined}
      */
  endOfMonth() {
-    return "Interest added SavingsAccount "+ this._number + ": balance: " + this._balance + "interest: " + this.interest; 
+     this._balance = this.addInterest();
+    return "Interest added SavingsAccount " + this._number + ": balance: "  + this._balance + " interest: " + this.interest; 
 }
 
 }

@@ -63,7 +63,15 @@ class CheckingAccount extends Account {
      * @returns {string} representation of this account
      */
  toString() {
-    return "CheckingAccount " + this._number + ": balance " + this._balance;
+    return "CheckingAccount " + this._number + ": balance: " + this._balance + " overdraft limit: " + this.overdraft;
+}
+
+endOfMonth(){
+    if(this._balance < 0){
+        return "Warning, low balance CheckingAccount " + this._number +": balance: "+ this._balance+" overdraft limit: "+this.overdraft;
+    }else {
+        return "";
+    }
 }
 
 }

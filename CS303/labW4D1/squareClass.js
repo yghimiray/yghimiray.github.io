@@ -25,4 +25,68 @@ const snoopy = {
     __proto__ : animal
 };
 
-console.log(snoopy.__proto__);
+// console.log(snoopy.__proto__);
+
+
+
+/*Rewrite the following as a class.  Remember that classes do not allow local variables outside methods. 
+Use the _ convention to indicate a property that should not be directly accessed. 
+*/
+
+// function Counter() {
+//   let count = 0;
+
+//   this.up = function() {
+//     return ++count;
+//   };
+//   this.down = function() {
+//     return --count;
+//   };
+// }
+
+class Counter {
+
+    constructor(){
+    this._count = 0;
+    }
+
+    up () {
+      return ++this._count;
+    }
+
+    down () {
+      return --this._count;
+    }
+  }
+
+let counter = new Counter();
+
+// console.log( counter.up() ); 
+// console.log( counter.up() ); 
+// console.log( counter.down() ); 
+
+
+// class User {
+// constructor(name) {
+//     this.name = name;
+//   }
+  
+//   sayHi () {
+//     console.log(this.name);
+//   }
+// }
+  
+
+function User(name) {
+    this.name = name;
+  }
+  
+  User.prototype.sayHi = function() {
+    console.log(this.name);
+  };
+  
+  let john = new User("John");
+//   user.sayHi();
+console.log(User.__proto__);
+
+  

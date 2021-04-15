@@ -11,21 +11,43 @@ const sav = require("./savingsaccount.js");
 const SavingsAccount = sav.SavingsAccount; 
 
 class Bank {
-constructor(){
-    
+
+    constructor(){
+    this._accounts = [];
 }
 
+static nextNumber = 1;
+
+addAccount(){
+    this.number = Bank.nextNumber++;
+    this._accounts.push(new Account(this.number));
+}
+
+addSavingsAccount(interest){
+    this._number = Bank.nextNumber++;
+    this._accounts.push(new SavingsAccount(this._number,interest));
+}
+
+addCheckingAccount(overdraft){
+    this._number = Bank.nextNumber++;
+    this._accounts.push(new CheckingAccount(this._number, overdraft));
+}
+
+closeAccount(number){
+let foundIndex = this._accounts.findIndex(item => item.getNumber() === number);
+this._accounts.splice(foundIndex,1);
+// return foundIndex;
+}
+accountReport(){
+    return this._accounts.reduce((report,item) => report + "\n " + item.toString() );
+}
 }
 
 
-
-
-
-
-
-
-
-
+// const bank = new Bank();
+// bank.addAccount();
+// bank.addCheckingAccount();
+// console.log(bank.accountReport());
 
 
 
