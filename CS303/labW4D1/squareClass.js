@@ -82,11 +82,19 @@ function User(name) {
   }
   
   User.prototype.sayHi = function() {
-    console.log(this.name);
+    // console.log(this.name);
   };
   
   let john = new User("John");
 //   user.sayHi();
-console.log(User.__proto__);
+// console.log(User.__proto__);
 
   
+
+
+function f2() {
+  'use strict'; // see strict mode
+  return this;
+}
+
+// console.log(f2() === undefined); // true
